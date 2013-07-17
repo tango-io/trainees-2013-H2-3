@@ -6,6 +6,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+<<<<<<< HEAD
     %div 
       - if user_signed_in? 
         Logged in as 
@@ -20,4 +21,6 @@
 
       - flash.each do |name, msg| 
         = content_tag :div, msg, id: "flash_#{name}" 
+=======
+>>>>>>> 4cc2cdcea7a9ac7b3f9aef0405f9872b1066f7d8
     = yield
