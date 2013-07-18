@@ -12,11 +12,15 @@
           %input{:type => 'text', :placeholder => 'Search'}
       .middle-header
         .middle-left-header
-          hola
+          Profile 
+          = @user.email
         .middle-right-header
           mundo
   %h1= @user.id
   %p
+    %strong User:
+    = @user.email
+    %br/
     %strong Name:
     = @user.firstname
     %br/
