@@ -54,4 +54,6 @@ StarfishApp::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  devise_for :users, path_names: {sing_in: "login", sing_out: "logout"}
+  get '/profile/:id', to: 'users#profile', as: 'user'
 end
