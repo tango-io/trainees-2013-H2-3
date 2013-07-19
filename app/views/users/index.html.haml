@@ -1,4 +1,3 @@
-
 .main-board
   %section.board
     %h2 Our great project!
@@ -10,8 +9,8 @@
       .main-project-header-cell-left
         %h4 Staff picks: Tecnology
       .main-project-header-cell-right
-        See all 
-        %strong 340 
+        See all
+        %strong 340
         Tecnology projects
     .main-project-video
       %iframe{:allowfullscreen => "", :frameborder => "0", :width => "340", :height => "250", :src => "//www.youtube.com/embed/AkQvzvzf1sc"}
@@ -22,3 +21,21 @@
     hola mundo
 %br/
 %h1 Welcome
+{{ 1+3 }}
+%table{"ng-controller" => "projectsController", "ng-init" => "showProjects()"}
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th Description
+      %th Stock
+      %th
+      %th
+      %th
+  %tbody(ng-repeat="project in projects")
+    %tr
+      %td {{project.name}}
+      %td 
+      %td 
+      %td 
+
