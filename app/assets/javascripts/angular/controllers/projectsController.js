@@ -1,12 +1,12 @@
 projectsModel.controller('projectsController', ['$scope','$http', function($scope, $http){
+  $scope.projects = {};
 
-  $scope.hola = "mundo";
-  $scope.projects = [
-    {name: 'Facebook' },
-    {name: 'Google' },
-    {name: 'Coca-Cola' }
-  ];
+  $scope.showProjects= function(){
+    $http.get('/projects.json').success(function(projects){
+      $scope.projects = projects;
+    });
+    //$scope.projects = projects;
+  };
 
-  
 }]);
 
