@@ -33,12 +33,18 @@
     %p.text-info Tecnology
     %p Theater
 %section.projects-main
+  %section.projects-header
+    .ps-header-left
+      .popular-icon
+        %h4 Popular
+    .ps-header-right
+      See all
   #projectsMain.carousel.slide
     %ol.carousel-indicators
       %li.active{"data-slide-to" => "0", "data-target" => "#projectsMain"}
       %li{"data-slide-to" => "1", "data-target" => "#projectsMain"}
       %li{"data-slide-to" => "2", "data-target" => "#projectsMain"}
-    .carousel-inner
+    .carousel-inner{ :style => 'height: 350px' }
       .active.item
         %section.projects-block
           %div.row-fluid
@@ -138,6 +144,12 @@
     %a.carousel-control.left{"data-slide" => "prev", :href => "#projectsMain"} ‹
     %a.carousel-control.right{"data-slide" => "next", :href => "#projectsMain"} ›
 .main-board.facebook
+  %section.board.facebook
+    %h2 Discover great projects with your friends
+    %br
+    %button.btn.btn-large.btn-primary{:type => "button"} 
+      %i.icon-thumbs-up.iconsw 
+      log in with facebook
 
 
 %br/
