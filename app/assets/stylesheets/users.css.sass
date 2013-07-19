@@ -19,22 +19,50 @@ header
     text-align: center
     height: 60px
 
+.divider
+  border-left: 1px solid lightGray
+  height: 50px
+  display: inline-block
+  vertical-align: middle
+  margin: 0 20px 0 20px
+
+.main-board
+  width: auto fixed
+  height: 300px
+  vertical-align: middle
+  background: url(/assets/main-board.jpg)
+
+.header-content
+  display: table-cell
+  vertical-align: middle
+
 section
   width: 1000px
   margin: 30px auto
   height: 400px
   display: table
-  vertical-align: middle
+  &.board
+    width: 570px
+
+
 //---------------------main project
 .main-project
   width: 700px
   height: 300px
   display: table-cell
   vertical-align: middle
+  padding: 10px
 
 .main-project-header
   height: 40px
-
+  display: table
+.main-project-header-cell-left
+  display: table-cell
+  width: 450px
+.main-project-header-cell-right
+  text-align: right
+  display: table-cell
+  width: 250px
 .main-project-video
   display: table-cell
   vertical-align: middle
@@ -47,18 +75,5 @@ section
 .categories
   display: table-cell
   width: 300px
-.divider
-  border-left: 1px solid rgba(0,0,0,0.7)
-  height: 50px
-  display: inline-block
-  vertical-align: middle
-  margin: 0 20px 0 20px
-
-.main-board
-  width: auto fixed
-  height: 300px
-  background: url(/assets/main-board.jpg)
-
-.header-content
-  display: table-cell
-  vertical-align: middle
+  padding: 10px
+  border-left: 1px solid lightGray

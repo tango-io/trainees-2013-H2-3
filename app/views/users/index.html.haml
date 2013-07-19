@@ -1,9 +1,18 @@
 
 .main-board
+  %section.board
+    %h2 Our great project!
+    %h4 This is a great stuff suport us
+    %button.btn.btn-small.btn-info{:type => "button"} Learn More >
 %section
   .main-project
     .main-project-header
-      este es el header del video
+      .main-project-header-cell-left
+        %h4 Staff picks: Tecnology
+      .main-project-header-cell-right
+        See all 
+        %strong 340 
+        Tecnology projects
     .main-project-video
       %iframe{:allowfullscreen => "", :frameborder => "0", :width => "340", :height => "250", :src => "//www.youtube.com/embed/AkQvzvzf1sc"}
     //.divider.section.transparent
