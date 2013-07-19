@@ -19,13 +19,15 @@
           .divider
           %input.search-query{:type => 'text', :placeholder => 'Search'}
           .divider
-            = link_to "New Project", new_project_path 
-            | 
+            Help
             - if user_signed_in?
-              = current_user.email
-              Not you?
+              |
+              = link_to "New Project", new_project_path 
+              |
               = link_to "Sign out", destroy_user_session_path, :method => 'delete'
             - else
+              |
               = link_to "Sign up", new_user_registration_path
+              |
               = link_to "Log in", new_user_session_path
     = yield
