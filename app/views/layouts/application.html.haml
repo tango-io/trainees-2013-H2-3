@@ -6,12 +6,26 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    - if user_signed_in? 
-      Signed in as 
-      = current_user.email 
-      Not you?
-      = link_to "Sign out", destroy_user_session_path, :method => 'delete'
-    - else
-      = link_to "Sign up", new_user_registration_path  
-      = link_to "Sign in", new_user_session_path 
-    = yield
+    #main-container
+      %header.sf-main
+        .header-content
+          Logo
+          .divider
+          About Starfish
+          .divider
+          Discover great projects
+          .divider
+          Start your project
+          .divider
+          %input.search-query{:type => 'text', :placeholder => 'Search'}
+          .divider
+          Help
+          - if user_signed_in? 
+            Signed in as 
+            = current_user.email 
+            Not you?
+            = link_to "Sign out", destroy_user_session_path, :method => 'delete'
+          - else
+            = link_to "Sign up", new_user_registration_path
+            = link_to "Log in", new_user_session_path 
+      = yield
