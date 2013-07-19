@@ -1,8 +1,8 @@
 !!!
-%html
+%html{"ng-app" => "projectsModel"}
   %head
     %title StarfishApp
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
@@ -19,13 +19,13 @@
           .divider
           %input.search-query{:type => 'text', :placeholder => 'Search'}
           .divider
-          Help
-          - if user_signed_in? 
-            Signed in as 
-            = current_user.email 
-            Not you?
-            = link_to "Sign out", destroy_user_session_path, :method => 'delete'
-          - else
-            = link_to "Sign up", new_user_registration_path
-            = link_to "Log in", new_user_session_path 
-      = yield
+            = link_to "New Project", new_project_path 
+            | 
+            - if user_signed_in?
+              = current_user.email
+              Not you?
+              = link_to "Sign out", destroy_user_session_path, :method => 'delete'
+            - else
+              = link_to "Sign up", new_user_registration_path
+              = link_to "Log in", new_user_session_path
+    = yield
