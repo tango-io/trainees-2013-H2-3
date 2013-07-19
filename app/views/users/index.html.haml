@@ -1,3 +1,4 @@
+
 .main-board
   %section.board
     %h2 Our great project!
@@ -9,8 +10,8 @@
       .main-project-header-cell-left
         %h4 Staff picks: Tecnology
       .main-project-header-cell-right
-        See all
-        %strong 340
+        See all 
+        %strong 340 
         Tecnology projects
     .main-project-video
       %iframe{:allowfullscreen => "", :frameborder => "0", :width => "340", :height => "250", :src => "//www.youtube.com/embed/AkQvzvzf1sc"}
@@ -18,9 +19,132 @@
     .main-project-content
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui facer possim assum. Typi non habent claritatem insitam; est usus legentis.
   .categories
-    hola mundo
+    %p Art
+    %p Comics
+    %p Dance
+    %p Design
+    %p Fashion
+    %p Film & Video
+    %p Food
+    %p Games
+    %p Music
+    %p Photography
+    %p Publishing
+    %p.text-info Tecnology
+    %p Theater
+%section.projects-main
+  #projectsMain.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#projectsMain"}
+      %li{"data-slide-to" => "1", "data-target" => "#projectsMain"}
+      %li{"data-slide-to" => "2", "data-target" => "#projectsMain"}
+    .carousel-inner
+      .active.item
+        %section.projects-block
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project3
+                  .caption
+                    %h3 Project 1
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project1
+                  .caption
+                    %h3 Project 2
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project2
+                  .caption
+                    %h3 Project 3
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project3
+                  .caption
+                    %h3 Project 4
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+      .item 
+        %section.projects-block
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project1
+                  .caption
+                    %h3 Project 5
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project2
+                  .caption
+                    %h3 Project 6
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project3
+                  .caption
+                    %h3 Project 7
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project1
+                  .caption
+                    %h3 Project 8
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+      .item 
+        %section.projects-block
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project2
+                  .caption
+                    %h3 Project 9
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project3
+                  .caption
+                    %h3 Project 10
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project1
+                  .caption
+                    %h3 Project 11
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project2
+                  .caption
+                    %h3 Project 12
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Read More
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#projectsMain"} ‹
+    %a.carousel-control.right{"data-slide" => "next", :href => "#projectsMain"} ›
+.main-board.facebook
+
+
 %br/
 %h1 Welcome
+%br/
+%h1 Welcome
+
 {{ 1+3 }}
 %table{"ng-controller" => "projectsController", "ng-init" => "showProjects()"}
   %thead
@@ -38,4 +162,5 @@
       %td 
       %td 
       %td 
+
 
