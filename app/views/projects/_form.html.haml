@@ -1,4 +1,6 @@
-- @project.user_id = current_user.id
+- if user_signed_in?
+  - @project.user_id = current_user.id
+
 
 = form_for(@project) do |f|
   %p
