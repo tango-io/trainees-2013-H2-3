@@ -17,7 +17,23 @@
       %iframe{:allowfullscreen => "", :frameborder => "0", :width => "340", :height => "250", :src => "//www.youtube.com/embed/AkQvzvzf1sc"}
     //.divider.section.transparent
     .main-project-content
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui facer possim assum. Typi non habent claritatem insitam; est usus legentis.
+      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
+      %br
+      .progress
+        .bar{:style => "width: 60%;"}
+      %br
+      .span1
+        %strong 60%
+        %br
+        %small.muted funded
+      .span1
+        %strong $40,342
+        %br
+        %small.muted pledged
+      .span1
+        %strong 21
+        %br
+        %small.muted Days left
   .categories
     %p Art
     %p Comics
@@ -35,7 +51,7 @@
 %section.projects-main
   %section.projects-header
     .ps-header-left
-      .popular-icon
+      .p_icon.popular
         %h4 Popular
     .ps-header-right
       See all
@@ -48,13 +64,34 @@
         %section.projects-block
           %div.row-fluid
             %ul.thumbnails
-              %li.span3{"ng-repeat" => "project in projects"}
+              %li.span3
                 .thumbnail
                   .img-thumbnail.project3
                   .caption
-                    %h3 {{project.name}} 
+                    %h3 Personal dog
                     %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
-                    %a.btn.btn-primary{:href => "projects/{{project.id}}"} {{ project.name}} 
+                    %a.btn.btn-primary Personal Dog
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project1
+                  .caption
+                    %h3 Robotic People
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Robotic People
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project2
+                  .caption
+                    %h3 Born to help
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Born to help
+              %li.span3
+                .thumbnail
+                  .img-thumbnail.project3
+                  .caption
+                    %h3 Just do it
+                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %a.btn.btn-primary Just do it
       .item 
         %section.projects-block
           %div.row-fluid
@@ -75,3 +112,19 @@
     %button.btn.btn-large.btn-primary{:type => "button"} 
       %i.icon-thumbs-up.iconsw 
       log in with facebook
+%section.curated-pages
+  %section.projects-header
+    .ps-header-left
+      .p_icon.curated
+        %h4 Curated Pages
+    .ps-header-right
+      See all
+.main-board.make
+  %section.board.make
+    %h2{:style => 'color: rgb(255,255,255)'} 
+      Where projects come from
+    %p{:style => 'color: rgb(0,0,0)'}  
+      Each and every Starfish project is the independent creation of someone like you.
+      %br
+      Want to know more about how projects happen, or start your own?
+      %a{:style => 'color: rgb(255,255,255)'} Learn More
