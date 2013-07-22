@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130717195822) do
+ActiveRecord::Schema.define(version: 20130722191156) do
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"
+    t.string   "category_id"
     t.string   "name"
+    t.string   "city"
+    t.datetime "close_date"
+    t.text     "description"
+    t.integer  "amount"
     t.integer  "money_raised"
+    t.string   "video_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130717195822) do
     t.string   "logo_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
