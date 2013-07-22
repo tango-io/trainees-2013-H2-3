@@ -1,6 +1,6 @@
 - @project.user_id = current_user.id
 
-= form_for(@project) do |f|
+= form_for (@project), :html => {:multipart => true} do |f|
   %p
     = f.label      :name
     = f.text_field :name 
@@ -13,6 +13,9 @@
     %br/
     = f.label      :description
     = f.text_field :description
+    %br/
+    = f.label      :video_url
+    = f.file_field :video_url
     %br/
     = f.label      :amount
     = f.text_field :amount
