@@ -101,7 +101,7 @@
                   .img-thumbnail.project2
                   .caption
                     %h3 {{ project.name }} 
-                    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                    %p {{ project.description }}
                     %a.btn.btn-primary{:href => "projects/{{project.id}}"} {{ project.name}} 
     %a.carousel-control.left{"data-slide" => "prev", :href => "#projectsMain"} ‹
     %a.carousel-control.right{"data-slide" => "next", :href => "#projectsMain"} ›
