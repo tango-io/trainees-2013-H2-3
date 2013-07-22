@@ -119,27 +119,64 @@
         %h4 Curated Pages
     .ps-header-right
       See all
-  %section.projects-block.pages
-    %div.row-fluid
-      %ul.thumbnails
-        %li.span2
-          .thumbnail
-            .img-page.project1
-        %li.span2
-          .thumbnail
-            .img-page.project2
-        %li.span2
-          .thumbnail
-            .img-page.project3
-        %li.span2
-          .thumbnail
-            .img-page.project4
-        %li.span2
-          .thumbnail
-            .img-page.project5
-        %li.span2
-          .thumbnail
-            .img-page.project6
+  #pagesMain.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#pagesMain"}
+      %li{"data-slide-to" => "1", "data-target" => "#pagesMain"}
+    .carousel-inner{ :style => 'height: 200px' }
+      .active.item
+        %section.projects-block.pages
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span2
+                .thumbnail
+                  .img-page.project1
+              %li.span2
+                .thumbnail
+                  .img-page.project2
+              %li.span2
+                .thumbnail
+                  .img-page.project3
+              %li.span2
+                .thumbnail
+                  .img-page.project4
+              %li.span2
+                .thumbnail
+                  .img-page.project5
+              %li.span2
+                .thumbnail
+                  .img-page.project6
+      .item 
+        %section.projects-block.pages
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span2
+                .thumbnail
+                  .img-page.project7
+              %li.span2
+                .thumbnail
+                  .img-page.project8
+              %li.span2
+                .thumbnail
+                  .img-page.project9
+              %li.span2
+                .thumbnail
+                  .img-page.project10
+              %li.span2
+                .thumbnail
+                  .img-page.project11
+              %li.span2
+                .thumbnail
+                  .img-page.project12
+      .item 
+        %section.projects-block.pages
+          %div.row-fluid
+            %ul.thumbnails
+              %li.span2
+                .thumbnail
+                  .img-page.project13
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#pagesMain"} ‹
+    %a.carousel-control.right{"data-slide" => "next", :href => "#pagesMain"} ›
 .main-board.make
   %section.board.make
     %h2{:style => 'color: rgb(255,255,255)'} 
