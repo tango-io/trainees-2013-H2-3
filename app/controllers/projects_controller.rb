@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :authenticate_user!, except:[:index]
+  before_filter :authenticate_user!, except:[:index,:show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -58,6 +58,6 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:name,:user_id)
+    params.require(:project).permit(:user_id, :category_id, :name, :city, :close_date, :description, :amount, :video_url)
   end
 end
