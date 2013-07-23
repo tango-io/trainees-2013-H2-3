@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130722221311) do
+ActiveRecord::Schema.define(version: 20130723184558) do
+
+  create_table "backs", force: true do |t|
+    t.integer  "amount"
+    t.string   "comment"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "backs", ["project_id"], name: "index_backs_on_project_id", using: :btree
+  add_index "backs", ["user_id"], name: "index_backs_on_user_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -21,7 +33,6 @@ ActiveRecord::Schema.define(version: 20130722221311) do
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"
-    t.string   "category_id"
     t.string   "name"
     t.string   "city"
     t.datetime "close_date"
@@ -31,7 +42,10 @@ ActiveRecord::Schema.define(version: 20130722221311) do
     t.string   "video_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,16 @@
+%section
+  %h2 Current projects
+  %br
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %th Delete
+    - @projects.each do |project|
+      %tr
+        %td #{ project.id }
+        %td #{ project.name }
+        %td 
+          = link_to "Delete", project, method: :delete, data:{confirm: 'Are you sure'}
+  = link_to "Back", administrators_path
