@@ -1,10 +1,10 @@
-%h2 New category
-%br
-%br
+%section
+  %h2 New category
+  %br
+  %br
 
-= form_for(@category) do |f|
-  %p
+  = form_for(@category) do |f|
     = f.label :name
     = f.text_field :name
-  
-  = f.submit
+    %br
+    = f.submit
