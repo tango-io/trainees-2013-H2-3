@@ -5,6 +5,7 @@ StarfishApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
 
+  devise_for :users, path_names: {sing_in: "login", sing_out: "logout"}
   resources :administrators
   resources :categories
   resources :projects
