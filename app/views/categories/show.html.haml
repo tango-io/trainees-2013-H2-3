@@ -1,12 +1,13 @@
-%h1 Category registered
+%section
+  %h1 Category registered
 
-%p
-  %strong Id: 
-  = @category.id
+  %p
+    %strong Id: 
+    = @category.id
 
-%p
-  %strong Name: 
-  = @category.name
+  %p
+    %strong Name: 
+    = @category.name
 
-%br
-= link_to "Back", categories_path
+  %br
+  = link_to "Back", categories_path
