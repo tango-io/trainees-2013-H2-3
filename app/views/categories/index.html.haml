@@ -1,0 +1,14 @@
+%h2 All categories
+%br
+%br
+
+- @categories.each do |category|
+  #{ category.id }
+  #{ category.name }
+  = link_to "Edit", edit_category_path(category)
+  = link_to "Delete", category, method: :delete, data:{confirm: 'Are you sure'}
+  %br
+%br
+
+= link_to "New category", new_category_path
+= link_to "Back", administrators_path
