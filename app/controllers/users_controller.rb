@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     if current_user.try(:admin?)
-      redirect_to(administrators_index_path)
+      redirect_to(administrators_path)
     end
   end
 
