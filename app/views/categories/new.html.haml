@@ -1,0 +1,10 @@
+%h2 New category
+%br
+%br
+
+= form_for(@category) do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  
+  = f.submit
