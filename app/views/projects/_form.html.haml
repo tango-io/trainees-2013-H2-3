@@ -1,5 +1,4 @@
 - @project.user_id = current_user.id
-
 = form_for (@project), :html => {:multipart => true} do |f|
   %p
     = f.label      :name
@@ -24,3 +23,29 @@
     = f.hidden_field :category_id
     %br/
     = f.submit
+    = submit_tag 'Preview', :name => 'preview' 
+- if params[:preview]
+  #main-project-container
+    %section
+      .project-header
+        %h2= @project.name 
+        %p
+          by 
+          = current_user.email
+      .project-container.modal
+        .container-head
+          .project-video
+            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480px", :src => "//www.youtube.com/embed/jvEaOBty6xI", :width => "640"}
+          .project-donations
+            %h1 515
+            %h5 Bakers
+            %h1 $170,475
+            %h5 Pledged of $28,000 to goal
+            %h1 12
+            %h5 Days to go
+            %br
+            %br
+            %button.btn.btn-large.btn-block.btn-primary{:type => "button"} Back This Project
+        .project-description
+          %h3 Project Description
+          = @project.description
