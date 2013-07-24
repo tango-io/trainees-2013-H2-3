@@ -1,0 +1,20 @@
+%section
+  %h1 Back registered
+
+  %p
+    %strong Id: 
+    = @back.id
+  %p
+    %strong User Id: 
+    = @back.user_id
+  %p
+    %strong Project Id: 
+    = @back.project_id
+  %p
+    %strong Amount
+    = @back.amount
+  %p
+    %strong Comment
+    = @back.comment
+  %br
+  = link_to "Home", root_path
