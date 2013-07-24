@@ -10,9 +10,6 @@ StarfishApp::Application.routes.draw do
   resources :categories
   resources :projects
   resources :backs
-
-  devise_for :users, path_names: {sing_in: "login", sing_out: "logout"}
-
   get '/profile/:id', to: 'users#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
