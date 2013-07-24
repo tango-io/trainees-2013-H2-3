@@ -6,8 +6,8 @@ StarfishApp::Application.routes.draw do
   root 'users#index'
 
   devise_for :users, path_names: {sing_in: "login", sing_out: "logout"}
-  resources :administrators
   resources :categories
+  resources :administrators, controller: 'admin/administrators'
   resources :projects
   resources :backs
   get '/profile/:id', to: 'users#show'

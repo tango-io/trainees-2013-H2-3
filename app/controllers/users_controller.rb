@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user!, except:[:index,:show]
+  before_filter :authenticate_user!, except:[:index]
 
   def index
-    if current_user.try(:admin?)
-      redirect_to(administrators_path)
+    unless current_user == nil
+      redirect_to administrators_path if current_user.admin
     end
   end
 
