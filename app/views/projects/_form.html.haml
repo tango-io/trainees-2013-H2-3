@@ -1,4 +1,12 @@
 - @project.user_id = current_user.id
+- if @project.errors.any?
+  %h2
+    = pluralize(@project.errors.count, 'error') 
+    saving
+  %ul
+    - @project.errors.full_messages.each do |msg|
+      %li= msg
+= flash[:notice]
 = form_for (@project), :html => {:multipart => true} do |f|
   %p
     = f.label      :name
@@ -24,9 +32,10 @@
     %br/
     = f.submit
     = submit_tag 'Preview', :name => 'preview' 
-- if params[:preview]
+- if params[:preview]   
   #main-project-container
     %section
+      %h2 Preview
       .project-header
         %h2= @project.name 
         %p
@@ -36,8 +45,8 @@
         .container-head
           .project-video
             %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480px", :src => "//www.youtube.com/embed/jvEaOBty6xI", :width => "640"}
-          .project-donations
-            %h1 515
+              .project-donations
+                %h1 515
             %h5 Bakers
             %h1 $170,475
             %h5 Pledged of $28,000 to goal
