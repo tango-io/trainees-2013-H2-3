@@ -1,4 +1,4 @@
-class BacksController < ApplicationController
+class User::BacksController < User::BaseController
 
   def index
     @backs = Back.all
