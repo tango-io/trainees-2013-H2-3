@@ -8,9 +8,10 @@ class User::UsersController < User::BaseController
     end
   end
 
+=begin
   def show
     @user = User.find(params[:id])
   end
-
+=end
 end
 
