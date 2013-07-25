@@ -13,7 +13,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to @category
+      redirect_to admin_categories_path
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def update
     if @category.update(category_params)
-      redirect_to @category
+      redirect_to admin_categories_path
     else
       render 'new'
     end
@@ -35,7 +35,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy
-    redirect_to @category
+    redirect_to admin_categories_path
   end
 
   private
