@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if params[:preview] or !@project.save
       render "new"
-    else @project.save 
+    else @project.save
       redirect_to @project, notice: "Project was successfully created."
     end
   end
@@ -46,9 +46,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_url
+    redirect_to projects_url if @project.destroy
   end
 
 private
@@ -58,6 +56,6 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :category_id, :name, :city, :close_date, :description, :amount, :video_url, :id)
+    params.require(:project).permit(:user_id, :category_id, :name, :city, :close_date, :description, :amount, :video_url)
   end
 end

@@ -34,8 +34,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    @category.destroy
-    redirect_to admin_categories_path
+    redirect_to admin_categories_path if @category.destroy
   end
 
   private
