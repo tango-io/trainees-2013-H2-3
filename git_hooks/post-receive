@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+echo "* Starting deployment"
+
+GIT_DIR=$(pwd)
+cd ..
+
+export RAILS_ENV=`git branch | grep '*' | awk '{print $2}' `
+
+source /usr/local/rvm/scripts/rvm
+rvm reload
+source ~/.bashrc
+
+echo "* Deploying $RAILS_ENV"
+
+echo "* checkout head"
+env -i git reset --hard
+
+env -i git submodule init
+env -i git submodule update
+
+
+echo '* deploy gems'
+bundle install --without=development --without=test --deployment
+
+echo '* rake db:migrate'
+bundle exec rake db:migrate
+
+# echo 'precompiling assets'
+bundle exec rake assets:clean assets:precompile
+
+echo '* restarting unicorn'
+kill -s HUP `cat tmp/pids/puma.pid`

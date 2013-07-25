@@ -4,6 +4,7 @@ gem 'rails', '4.0.0'
 
 # Use pg as the database for Active Record
 gem 'pg'
+gem 'puma'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
