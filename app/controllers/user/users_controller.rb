@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class User::UsersController < User::BaseController
 
   before_filter :authenticate_user!, except:[:index]
 
