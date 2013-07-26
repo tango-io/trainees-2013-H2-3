@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723184558) do
+ActiveRecord::Schema.define(version: 20130726032434) do
 
   create_table "backs", force: true do |t|
     t.integer  "amount"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20130723184558) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.boolean  "approved",     default: false
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
