@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
+User.create(email: "john@ts.com", password: 12345678, password_confirmation: 12345678)
+User.create(email: "mike@ts.com", password: 12345678, password_confirmation: 12345678)
+User.create(email: "admin@ts.com", password: 12345678, password_confirmation: 12345678)
+
 Category.create(name: 'Art')
 Category.create(name: 'Comics')
 Category.create(name: 'Desing')
