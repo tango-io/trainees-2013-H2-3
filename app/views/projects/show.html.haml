@@ -5,12 +5,14 @@
       %h2= @project.name 
       %p
         by 
+        = @owner.email
     .project-container.modal
       .container-head
         .project-video
           %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480px", :src => "//www.youtube.com/embed/jvEaOBty6xI", :width => "640"}
         .project-donations
-          %h1 515
+          %h1
+            = @users.count
           %h5 Bakers
           %h1 $170,475
           %h5 Pledged of $28,000 to goal
@@ -20,6 +22,10 @@
           %br
           = link_to "Back this project", new_back_path(:project => @project.id), class: "btn btn-large btn-block btn-primary"
           %h2 Backers
+          - @users.each do |user|
+            %tr
+              %td #{user.email}
+              %br
           %br
           %br
       .project-description
