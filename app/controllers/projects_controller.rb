@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
     if params[:preview] or !@project.save
       render "new"
     else @project.save
+      UserMailer.project_notification(@project.name).deliver
       redirect_to @project, notice: "Project was successfully created."
     end
   end
