@@ -13,6 +13,11 @@ StarfishApp::Application.routes.draw do
   #admin page
   namespace :admin do
     resources :categories, :home
+    resources :backs do
+      collection do
+        get :monney_to_give
+      end
+    end
   end
 
 end
