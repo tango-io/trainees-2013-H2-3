@@ -13,9 +13,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @users = User.joins(:backs).where(backs: {project_id: params[:id]})
+    @owner = User.find(@project.user_id)
     respond_to do |format|
       format.html
-      format.json { render json: @project}
+      #format.json { render json: @users}
     end
   end
 
