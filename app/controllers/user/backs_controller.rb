@@ -34,8 +34,7 @@ class User::BacksController < User::BaseController
   end
 
   def destroy
-    @back.destroy
-    redirect_to @back
+    redirect_to @back if @back.destroy
   end
 
   private
