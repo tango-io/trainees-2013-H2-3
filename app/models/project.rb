@@ -20,4 +20,8 @@ class Project < ActiveRecord::Base
 
   mount_uploader :video_url, ProjectVideoUploader
 
+  def approve!
+    self.approved = true
+    self.save
+  end
 end

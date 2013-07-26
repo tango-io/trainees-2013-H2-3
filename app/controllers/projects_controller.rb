@@ -46,6 +46,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def approve
+    @project = Project.find(params[:id])
+    @project.approve!
+    redirect_to projects_url
+  end
+
   def destroy
     redirect_to projects_url if @project.destroy
   end
@@ -57,6 +63,6 @@ private
   end
 
   def project_params
-    params.require(:project).permit( :name, :city, :close_date, :description, :amount, :video_url,:user_id, :category_id)
+    params.require(:project).permit( :name, :city, :close_date, :description, :amount, :video_url,:user_id, :category_id, :approved)
   end
 end
