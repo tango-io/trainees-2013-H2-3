@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    if params[:preview] or !@project.save
+    if params[:preview] 
       render "new"
     else @project.save 
       redirect_to @project, notice: "Project was successfully created."
