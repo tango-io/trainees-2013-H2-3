@@ -7,34 +7,34 @@
     - @project.errors.full_messages.each do |msg|
       %li= msg
 = flash[:notice]
-= form_for (@project), :html => {:multipart => true} do |f|
-  %p
-    = f.label      :name
-    = f.text_field :name 
-    %br/
-    = f.label      :city
-    = f.text_field :city 
-    %br/
-    = f.label      :close_date
-    = f.text_field :close_date, :id => "datepicker"
-    %br/
-    = f.label      :description
-    = f.text_field :description
-    %br/
-    = f.label      :video_url
-    = f.file_field :video_url
-    %br/
-    = f.label      :amount
-    = f.text_field :amount
-    %br/
-    = f.hidden_field :user_id
-    = f.hidden_field :category_id
-    = f.label        :category_id
-    %div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
-      %select{"ng-model" => "selected","ng-options" => "c.name for c in categories", "ng-required" => ""}
-    %br/
-    = f.submit
-    = submit_tag 'Preview', :name => 'preview' 
+%div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
+  = form_for (@project), :html => {:multipart => true} do |f|
+    %p
+      = f.label      :name
+      = f.text_field :name 
+      %br/
+      = f.label      :city
+      = f.text_field :city 
+      %br/
+      = f.label      :close_date
+      = f.text_field :close_date, :id => "datepicker"
+      %br/
+      = f.label      :description
+      = f.text_field :description
+      %br/
+      = f.label      :video_url
+      = f.file_field :video_url
+      %br/
+      = f.label      :amount
+      = f.text_field :amount
+      %br/
+      = f.label        :category_id
+      %select{"ng-model" => "selectedCategory","ng-options" => "c.name for c in categories","ng-init" => "selectedCategory.id=c.id" ,"ng-required" => ""}
+      = f.hidden_field :user_id
+      = f.hidden_field :category_id, value: "{{selectedCategory.id}}" 
+      %br/
+      = f.submit
+      = submit_tag 'Preview', :name => 'preview' 
     
 - if params[:preview]   
   #main-project-container

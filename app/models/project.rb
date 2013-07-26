@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :video_url
   validates_presence_of :amount
   validates_presence_of :user_id
-  #validates_presence_of :category_id
+  validates_presence_of :category_id
 
   validates_numericality_of :amount
   validates_uniqueness_of :name 
