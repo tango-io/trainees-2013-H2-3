@@ -1,4 +1,4 @@
-projectsModel.controller('projectsController', ['$scope','$http', function($scope, $http){
+starFishModel.controller('projectsController', ['$scope','$http', function($scope, $http){
   $scope.projects = {};
 
   $scope.showProjects= function(){
