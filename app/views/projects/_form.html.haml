@@ -14,7 +14,8 @@
       = f.text_field :name 
       %br/
       = f.label      :city
-      = f.text_field :city 
+      %select{"ng-model" => "selectedCity","ng-options" => "city for city in countries","ng-init" => "selectedCity=city", "ng-required" => ""}
+      = f.hidden_field :city, value: "{{selectedCity}}" 
       %br/
       = f.label      :close_date
       = f.text_field :close_date, :id => "datepicker"
