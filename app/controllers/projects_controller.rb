@@ -57,6 +57,6 @@ private
   end
 
   def project_params
-    params.require(:project).permit(:user_id, :category_id, :name, :city, :close_date, :description, :amount, :video_url)
+    params.require(:project).permit( :name, :city, :close_date, :description, :amount, :video_url,:user_id, :category_id)
   end
 end
