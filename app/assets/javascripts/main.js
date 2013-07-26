@@ -9,6 +9,6 @@ starFishModel.config(function($httpProvider){
 
 $(document).on('ready page:load', function(){
   angular.bootstrap(document, ['starFishModel']);
-  $("#datepicker").datepicker();
+  $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
 });
 
