@@ -16,6 +16,7 @@ StarfishApp::Application.routes.draw do
     resources :backs do
       collection do
         get :monney_to_give
+        get :revenue
       end
     end
   end
