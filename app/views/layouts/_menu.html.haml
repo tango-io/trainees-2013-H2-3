@@ -4,9 +4,9 @@
     .divider
     = link_to "About Starfish"
     .divider
-    = link_to "Discover great projects"
+    = link_to "Discover great projects", projects_path
     .divider
-    = link_to "Start your project", new_project_path 
+    = link_to "Start your project", new_user_project_path 
     .divider
     %input.search-query{:type => 'text', :placeholder => 'Search'}
     .divider

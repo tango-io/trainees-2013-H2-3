@@ -1,14 +1,15 @@
 StarfishApp::Application.routes.draw do
+
   get "categories", to: "categories#index"
+  get "projects", to: "projects#index"
+  get "projects/:id", to: "projects#show"
   #root page
   root 'home#index'
-  resources :projects do
-    member do
-      get :approve
-    end
-  end
   #Users page
   devise_for :users, controller: 'user/users', path_names: {sing_in: "login", sing_out: "logout"}
+  namespace :user do
+    resources :projects
+  end
   resources :backs, controller: 'user/backs'
   #admin page
   namespace :admin do
