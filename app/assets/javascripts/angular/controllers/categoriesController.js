@@ -261,7 +261,23 @@ starFishModel.controller('categoriesController', ['$scope','$http', function($sc
   $scope.showCategories= function(){
     $http.get('/categories.json').success(function(categories){
       $scope.categories = categories;
+      $("label[for='project_city']").html("State");
+      $("label[for='project_city']").css('display','none');
     });
   };
 
+  $("select[ng-options*='tries']").change(function () {
+    var op = $("select[ng-options*='tries'] option:selected").val();
+    $("label[for='project_city']").css('display','block');
+    if (op==0){
+      $("select[ng-options*='Mex']").css('display','none');
+      $("select[ng-options*='Usa']").css('display','block');
+      $("label[for='project_city']").html($scope.countries[0]);
+    }
+    else{
+      $("label[for='project_city']").html($scope.countries[1]);
+      $("select[ng-options*='Mex']").css('display','block');
+      $("select[ng-options*='Usa']").css('display','none');
+    }
+  });  
 }]);
