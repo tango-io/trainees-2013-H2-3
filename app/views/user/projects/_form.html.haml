@@ -6,7 +6,6 @@
   %ul
     - @project.errors.full_messages.each do |msg|
       %li= msg
-= flash[:notice]
 %div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
   = form_for ([:user, @project]), :html => {:multipart => true} do |f|
     %p

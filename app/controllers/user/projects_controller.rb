@@ -1,6 +1,6 @@
 class User::ProjectsController < User::BaseController
   
-  before_action :set_project, only: [:show,:edit,:create,:destroy]
+  before_action :set_project, only: [:show,:edit,:update,:destroy]
 
   def index
     @projects = Project.all
@@ -34,7 +34,7 @@ class User::ProjectsController < User::BaseController
       render "new"
     else @project.save
       #UserMailer.project_notification(@project.name).deliver
-      redirect_to @project, notice: "Project was successfully created."
+      redirect_to user_project_path(@project), notice: "Project was successfully created."
     end
   end
 
