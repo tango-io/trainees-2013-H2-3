@@ -9,7 +9,7 @@
 %div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
   = form_for ([:user, @project]), :html => {:multipart => true} do |f|
     .div.row
-      .span4
+      .span5
         = f.label      :name
         = f.text_field :name 
         %br/
@@ -17,12 +17,12 @@
         = f.file_field :video_url
         %br/
         = f.label      :description
-        = f.text_field :description
+        = f.text_area :description, :size => "30x10" 
         %br/
+      .span6
         = f.label      :amount
         = f.text_field :amount
         %br/
-      .span6
         = f.label      :country
         %select{"ng-model" => "selectedCoutry","ng-options" => "country for country in countries","ng-init" => "selectedCity=country", "ng-required" => ""}
         = f.label      :city
