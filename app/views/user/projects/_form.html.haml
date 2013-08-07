@@ -1,13 +1,13 @@
 - @project.user_id = current_user.id
-- if @project.errors.any?
-  %h2
-    = pluralize(@project.errors.count, 'error') 
-    saving
-  %ul
-    - @project.errors.full_messages.each do |msg|
-      %li= msg
 %div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
   = form_for ([:user, @project]), :html => {:multipart => true} do |f|
+    - if @project.errors.any?
+      %h2
+        = pluralize(@project.errors.count, 'error') 
+        saving
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
     .div.row
       .span5
         = f.label      :name
@@ -39,5 +39,4 @@
         = f.hidden_field :category_id, value: "{{selectedCategory.id}}" 
         %br/
         = f.submit
-        = submit_tag 'Preview', :name => 'preview' 
       
