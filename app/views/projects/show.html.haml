@@ -24,9 +24,9 @@
             = @project.amount
             %h5 to goal
           %h1 
-            = @project.close_date.to_time.strftime('%m/%d/%Y')
-          %h5 Close date
-          %br
+            = @time_to_finish
+          %h5 Days to go
+          %br  
           %br
           - if @owner.id != current_user.id
             - if @close_date == 1
