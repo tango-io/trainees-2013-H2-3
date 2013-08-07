@@ -18,7 +18,9 @@ class ProjectsController < ApplicationController
       format.html
     end
   end
-
+  def project_time_to_close
+      
+  end
 private
 
   def set_project
