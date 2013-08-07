@@ -44,10 +44,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
-  #For development and test install rspec as a testing gem
-  gem 'rspec-rails', '~> 2.0'
-end
+#group :development, :test do
+  ##For development and test install rspec as a testing gem
+  #gem 'rspec-rails', '~> 2.0'
+#end
+
+gem 'rspec-rails', :group => [:development, :test]
+gem "factory_girl_rails", :group => [:development, :test]
+gem "database_cleaner", :group => :test
+gem "email_spec", :group => :test
 
 group :test do
   gem 'capybara'
