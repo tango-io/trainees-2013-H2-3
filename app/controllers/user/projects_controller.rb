@@ -32,7 +32,7 @@ class User::ProjectsController < User::BaseController
     @project = Project.new(project_params)
     respond_to do |format|
       if @project.save
-        format.html { redirect_to user_project_path(@project), notice: 'Car was successfully created.' } 
+        format.html { redirect_to user_project_path(@project), notice: 'Project was successfully created.' } 
       else
         format.html { render action: 'new' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
