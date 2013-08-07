@@ -31,6 +31,10 @@ class ProjectsController < ApplicationController
       @close_date = 0
     end
   end
+
+  def date_to_close
+  
+  end
 private
 
   def set_project
