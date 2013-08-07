@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
     @date_finish = Date.parse("#{@project.close_date}")
     @date_now = Date.today
     @time_to_finish = (@date_finish - @date_now).to_i
+    @time_to_finish = 0 if @time_to_finish <= 0
   end
 private
 
