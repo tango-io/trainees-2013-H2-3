@@ -30,11 +30,13 @@ class User::ProjectsController < User::BaseController
 
   def create
     @project = Project.new(project_params)
-    if params[:preview] 
-      render "new"
-    else @project.save
-      #UserMailer.project_notification(@project.name).deliver
-      redirect_to user_project_path(@project), notice: "Project was successfully created."
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to user_project_path(@project), notice: 'Car was successfully created.' } 
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
     end
   end
 
