@@ -5,15 +5,6 @@ gem 'rails', '4.0.0'
 # Use pg as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-#Use for authentications
-gem 'devise'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -22,6 +13,18 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #Use Carrierwave to upload files
 gem 'carrierwave'
+
+#Clean the database after do a test
+gem "database_cleaner", :group => :test
+
+#Use for authentications
+gem 'devise'
+
+#Make e-mail testing
+gem "email_spec", :group => :test
+
+#Create dummy data for testing
+gem "factory_girl_rails", :group => [:development, :test]
 
 # Use HAML as markup language
 gem "haml", "~> 4.0.3"
@@ -38,15 +41,18 @@ gem 'jbuilder', '~> 1.2'
 # Use pry instead IRB
 gem 'pry'
 
+#For development and test install rspec as a testing gem
+gem 'rspec-rails', '~> 2.0', :group => [:development, :test]
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-end
-
-group :development, :test do
-  #For development and test install rspec as a testing gem
-  gem 'rspec-rails', '~> 2.0'
 end
 
 group :test do
