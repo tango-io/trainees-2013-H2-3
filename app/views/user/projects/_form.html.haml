@@ -5,9 +5,10 @@
       - if @project.errors.any?
         %div{"id" => "error_explanation"}
           %div{"class" => "alert alert-error"}
-            = pluralize(@project.errors.count, 'error') 
-            detected check it out please.
-          .span4
+            %button{ "type"=> "button", "class"=>"close", "data-dismiss"=>"alert"}x
+            %h2
+              = pluralize(@project.errors.count, 'error') 
+              detected check it out please.
             %ul
               - @project.errors.full_messages.each do |msg|
                 %li= msg
@@ -25,11 +26,11 @@
         = f.label      :amount
         = f.text_field :amount
         %br/
-        = f.label      :country
-        %select{"ng-model" => "selectedCoutry","ng-options" => "country for country in countries","ng-init" => "selectedCity=country", "ng-required" => ""}
         = f.label      :city
-        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityMex","ng-init" => "selectedCity=city", "ng-required" => ""}
-        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityUsa","ng-init" => "selectedCity=city", "ng-required" => ""}
+        = f.label      :country
+        %select{"ng-model" => "selectedCoutry","ng-options" => "c for c in countries","ng-init" => "selectedCity=country"}
+        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityMex","ng-init" => "selectedCity=city"}
+        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityUsa","ng-init" => "selectedCity=city"}
         = f.hidden_field :city, value: "{{selectedCity}}" 
         %br/
         = f.label      :close_date
