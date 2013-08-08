@@ -41,13 +41,26 @@ class Admin::BacksController < Admin::BaseController
     @fee = 0.05
     @backs = Back.all
     @sum = 0
-    @backs.each do |back|
-      @sum += back.amount
+    @new_backs = {}
+   for back in @backs
+    if @new_backs[back.project_id] != nil
+      @new_backs[back.project_id] += back.amount
+    else
+      @new_backs[back.project_id] = back.amount
     end
-    @total_fee = @sum * @fee
-    @money = @sum - @total_fee
+   end
+      #@backs = Back.where(:project_id => x)
+      #@new_backs.each do |back|
+      @sum = 0
+      @new_backs.each{|key,sum| @sum += sum }
+      #@sum += @new_backs.inject(:+)
+      #end
+      @total_fee = @sum * @fee
+      @money = @sum - @total_fee
+    #end
   end
  
+  
   private
   def back_params
     params.require(:back).permit(:amount, :comment, :project_id, :user_id, :created_at)
