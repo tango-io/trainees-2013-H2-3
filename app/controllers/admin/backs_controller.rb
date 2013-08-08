@@ -49,12 +49,8 @@ class Admin::BacksController < Admin::BaseController
       @new_backs[back.project_id] = back.amount
     end
    end
-      #@backs = Back.where(:project_id => x)
-      #@new_backs.each do |back|
       @sum = 0
       @new_backs.each{|key,sum| @sum += sum }
-      #@sum += @new_backs.inject(:+)
-      #end
       @total_fee = @sum * @fee
       @money = @sum - @total_fee
     #end

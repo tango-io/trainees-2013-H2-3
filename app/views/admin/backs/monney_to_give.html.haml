@@ -7,9 +7,9 @@
       %tr
         %th Name
         %th Money   
-    - @backs.each do |back|
+    - @new_backs.each do |key,back|
       %tr
-        %td #{ back.project_id }
-        %td #{ back.amount }
+        %td #{ key }
+        %td #{ back * (1 - @fee)}
         %td 
   = link_to "Back", admin_home_index_path
