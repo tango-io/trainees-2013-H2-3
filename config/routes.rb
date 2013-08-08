@@ -1,8 +1,7 @@
 StarfishApp::Application.routes.draw do
 
   get "categories", to: "categories#index"
-  get "projects", to: "projects#index"
-  get "projects/:id", to: "projects#show"
+  resources :projects
   #root page
   root 'home#index'
   #Users page
