@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @time_now = Time.now
     if @time_now >= @project.close_date
-      flash[:notice] = "The Project was Closer"
+      flash[:notice] = "The Project was Closed"
       @close_date = 1
     else
       @close_date = 0
