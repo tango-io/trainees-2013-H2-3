@@ -1,15 +1,17 @@
 - @project.user_id = current_user.id
 %div{"ng-controller" => "categoriesController", "ng-init" => "showCategories()"}
   = form_for ([:user, @project]), :html => {:multipart => true} do |f|
-    - if @project.errors.any?
-      %h2
-        = pluralize(@project.errors.count, 'error') 
-        saving
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
     .div.row
-      .span5
+      - if @project.errors.any?
+        %div{"id" => "error_explanation"}
+          %div{"class" => "alert alert-error"}
+            = pluralize(@project.errors.count, 'error') 
+            detected check it out please.
+          .span4
+            %ul
+              - @project.errors.full_messages.each do |msg|
+                %li= msg
+      .span4
         = f.label      :name
         = f.text_field :name 
         %br/
@@ -19,7 +21,7 @@
         = f.label      :description
         = f.text_area :description, :size => "30x10" 
         %br/
-      .span6
+      .span4
         = f.label      :amount
         = f.text_field :amount
         %br/
