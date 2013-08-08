@@ -48,10 +48,6 @@ class Admin::BacksController < Admin::BaseController
     @money = @sum - @total_fee
   end
  
-  def show_projects_backed
-  
-  end
-  
   private
   def back_params
     params.require(:back).permit(:amount, :comment, :project_id, :user_id, :created_at)
