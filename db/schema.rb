@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731195304) do
+ActiveRecord::Schema.define(version: 20130726032434) do
 
   create_table "backs", force: true do |t|
     t.integer  "amount"
