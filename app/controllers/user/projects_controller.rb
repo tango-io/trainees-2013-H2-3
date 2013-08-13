@@ -31,7 +31,9 @@ class User::ProjectsController < User::BaseController
   def create
     @project = Project.new(project_params)
     respond_to do |format|
-      if @project.save
+      if params[:preview] or !@project.save
+        format.html {render action: "preview"}
+      elsif @project.save
         format.html { redirect_to user_project_path(@project), notice: 'Project was successfully created.' } 
       else
         format.html { render action: 'new' }
