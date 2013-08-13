@@ -40,20 +40,25 @@ class Admin::BacksController < Admin::BaseController
   def monney_to_give
     @fee = 0.05
     @backs = Back.all
+    calculate_backs
+  end
+
+  def calculate_backs
     @sum = 0
     @new_backs = {}
-   for back in @backs
-    if @new_backs[back.project_id] != nil
-      @new_backs[back.project_id] += back.amount
-    else
-      @new_backs[back.project_id] = back.amount
+    for back in @backs
+      if @new_backs[back.project_id] != nil
+        @new_backs[back.project_id] += back.amount
+      else
+        @new_backs[back.project_id] = back.amount
+      end
     end
-   end
-      @sum = 0
-      @new_backs.each{|key,sum| @sum += sum }
-      @total_fee = @sum * @fee
-      @money = @sum - @total_fee
+    @sum = 0
+    @new_backs.each{|key,sum| @sum += sum }
+    @total_fee = @sum * @fee
+    @money = @sum - @total_fee
     #end
+
   end
  
   
