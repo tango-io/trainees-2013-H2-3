@@ -19,7 +19,7 @@ class Admin::BacksController < Admin::BaseController
     @fee = 0.05
     @sum = 0
     @int_array = []
-
+    
     @backs.each do |back|
       integer = back.created_at.to_i
       if (integer > @s_int and integer < @e_int)
@@ -34,7 +34,8 @@ class Admin::BacksController < Admin::BaseController
     end
 
     @total_fee = @sum * @fee
-
+    @backs = @time_backs
+    calculate_backs
   end
 
   def monney_to_give
@@ -47,10 +48,12 @@ class Admin::BacksController < Admin::BaseController
     @sum = 0
     @new_backs = {}
     for back in @backs
-      if @new_backs[back.project_id] != nil
-        @new_backs[back.project_id] += back.amount
-      else
-        @new_backs[back.project_id] = back.amount
+      if back != nil 
+        if @new_backs[back.project_id] != nil
+          @new_backs[back.project_id] += back.amount
+        else
+          @new_backs[back.project_id] = back.amount
+        end
       end
     end
     @sum = 0
