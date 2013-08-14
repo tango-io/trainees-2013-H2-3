@@ -22,6 +22,7 @@ StarfishApp::Application.routes.draw do
       collection do
         get :monney_to_give
         get :monney_to_give_betwen_dates
+        get :revenue
       end
     end
   end

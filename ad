@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /home/manstike/TangoSource/Project/starfish/app/controllers/admin/backs_controller.rb @ line 49 Admin::BacksController#monney_to_give_betwen_dates:
+
+    [1;34m40[0m: [1;31mdef[0m [1;34mmonney_to_give_betwen_dates[0m
+    [1;34m41[0m:   @projects = [1;34m[4mProject[0m.all  
+    [1;34m42[0m:   @start_date = params[[1;32m:s_date[0m].to_time
+    [1;34m43[0m:   @end_date = params[[1;32m:e_date[0m].to_time
+    [1;34m44[0m:   @start_date = @start_date.to_i
+    [1;34m45[0m:   @end_date = @end_date.to_i
+    [1;34m46[0m:   [0;34m#@projects_select = @projects.find(:all, :conditions => "'close_date' < #{@end_date}")[0m
+    [1;34m47[0m:   [0;34m#@projects_select = @projects.where("close_date LIKE #{@close_date}")[0m
+    [1;34m48[0m:   @projects.each [1;31mdo[0m |project|
+ => [1;34m49[0m:     binding.pry
+    [1;34m50[0m:     integer = project.close_date.to_i
+    [1;34m51[0m:     [1;31mif[0m (integer > @s_int [1;31mand[0m integer < @e_int)
+    [1;34m52[0m:       @time_backs[project.id] = project
+    [1;34m53[0m:     [1;31mend[0m
+    [1;34m54[0m:     @int_array[project.id] = integer 
+    [1;34m55[0m:   [1;31mend[0m
+    [1;34m56[0m:   binding.pry
+    [1;34m57[0m:   [0;34m#@i = 0[0m
+    [1;34m58[0m:   [0;34m#@time_backs.each do |tback|[0m
+    [1;34m59[0m:     [0;34m#@sum += tback.amount if tback[0m
+    [1;34m60[0m:     [0;34m#@i += 1 if tback[0m
+    [1;34m61[0m:   [0;34m#end[0m
+    [1;34m62[0m:   @total_fee = @sum * @fee
+    [1;34m63[0m: [1;31mend[0m
+

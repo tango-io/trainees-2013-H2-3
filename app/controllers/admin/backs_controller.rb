@@ -8,36 +8,33 @@ class Admin::BacksController < Admin::BaseController
     @back = Back.find(params[:id])
   end
 
-  #def revenue
-
-    #@backs = Back.all
-    #@start_date = params[:s_date].to_time
-    #@end_date = params[:e_date].to_time
-    #@s_int = @start_date.to_i
-    #@e_int = @end_date.to_i
-    #@time_backs = []
-    #@fee = 0.05
-    #@sum = 0
-    #@int_array = []
-    
-    #@backs.each do |back|
-      #integer = back.created_at.to_i
-      #if (integer > @s_int and integer < @e_int)
-        #@time_backs[back.id] = back
-      #end
-      #@int_array[back.id] = integer 
-    #end
-    #@i = 0
-    #@time_backs.each do |tback|
-      #@sum += tback.amount if tback
-      #@i += 1 if tback
-    #end
-
-    #@total_fee = @sum * @fee
-    #@backs = @time_backs
-    #calculate_backs
-  #end
   def monney_to_give_betwen_dates
+    @projects = Project.all  
+    @start_date = params[:s_date].to_time
+    @end_date = params[:e_date].to_time
+    @start_date = @start_date.to_i
+    @end_date = @end_date.to_i
+    @time_projects = []
+    @int_array = []
+    @projects.each do |project|
+      integer = project.close_date.to_i
+      if (integer > @start_date and integer < @end_date)
+        @time_projects[project.id] = project
+      end
+      @int_array[project.id] = integer 
+    end
+    @time_projects
+    @new_project = {}
+    for project in @time_projects
+      if project != nil 
+        if @new_project[project.name] != nil
+          @new_project[project.name] += project.money_raised
+        else
+          @new_project[project.name] = project.money_raised
+        end
+      end
+    end
+    binding.pry
   end
 
   def monney_to_give
