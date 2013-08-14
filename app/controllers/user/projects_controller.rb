@@ -31,13 +31,15 @@ class User::ProjectsController < User::BaseController
   def create
     @project = Project.new(project_params)
     respond_to do |format|
-      if params[:preview] or !@project.save
-        format.html {render action: "preview"}
-      elsif @project.save
+      if @project.save
         format.html { redirect_to user_project_path(@project), notice: 'Project was successfully created.' } 
       else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        if params[:preview] 
+          format.html {render action: "preview", notice: "Preview"}
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @project.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

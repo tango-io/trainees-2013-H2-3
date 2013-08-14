@@ -29,18 +29,21 @@
         = f.label      :city
         = f.label      :country
         %select{"ng-model" => "selectedCoutry","ng-options" => "c for c in countries","ng-init" => "selectedCity=country"}
-        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityMex","ng-init" => "selectedCity=city"}
-        %select{"ng-model" => "selectedCity","ng-options" => "city for city in cityUsa","ng-init" => "selectedCity=city"}
+        %select{"id" => "project_mx","ng-model" => "selectedCity","ng-options" => "city for city in cityMex","ng-init" => "selectedCity=city"}
+        %select{"id" => "project_us","ng-model" => "selectedCity","ng-options" => "city for city in cityUsa","ng-init" => "selectedCity=city"}
         = f.hidden_field :city, value: "{{selectedCity}}" 
         %br/
         = f.label      :close_date
-        = f.text_field :close_date, :id => "datepicker"
+        = f.text_field :close_date, :id => "project_closedate"
         %br/
         = f.label        :category_id
-        %select{"ng-model" => "selectedCategory","ng-options" => "c.name for c in categories","ng-init" => "selectedCategory.id=c.id" ,"ng-required" => ""}
+        %select{"id" => "project_category","ng-model" => "selectedCategory","ng-options" => "c.name for c in categories","ng-init" => "selectedCategory.id=c.id" ,"ng-required" => ""}
         = f.hidden_field :user_id
         = f.hidden_field :category_id, value: "{{selectedCategory.id}}" 
         %br/
-        = f.submit
-        = submit_tag 'Preview', name: 'preview'
-      
+        = f.submit  
+        = submit_tag 'Preview', name: 'preview', id: 'preview', class: 'btn btn-primary'	
+
+
+
+
