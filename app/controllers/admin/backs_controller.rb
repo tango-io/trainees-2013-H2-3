@@ -36,7 +36,6 @@ class Admin::BacksController < Admin::BaseController
     end
     @sum = 0
     @new_project.each{|key,money_raised| @sum += money_raised if money_raised !=nil }
-    binding.pry
     @total_fee = @sum * 0.5
     @money = @sum - @total_fee
 
