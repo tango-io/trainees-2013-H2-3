@@ -17,10 +17,14 @@ StarfishApp::Application.routes.draw do
       member do
         get :approve
       end
+      collection do
+        get :monney_to_give
+        get :monney_to_give_betwen_dates
+      end
     end
     resources :backs do
       collection do
-        get :monney_to_give
+
         get :revenue
       end
     end
