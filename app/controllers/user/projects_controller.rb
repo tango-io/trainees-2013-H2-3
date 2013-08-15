@@ -31,15 +31,22 @@ class User::ProjectsController < User::BaseController
   def create
     @project = Project.new(project_params)
     respond_to do |format|
-      if @project.save
+      if @project.save and !params[:preview]
         format.html { redirect_to user_project_path(@project), notice: 'Project was successfully created.' } 
       else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        if params[:preview] 
+          format.html {render action: "preview"}
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @project.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
+  def edit_preview 
+    render action: 'new'
+  end
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
