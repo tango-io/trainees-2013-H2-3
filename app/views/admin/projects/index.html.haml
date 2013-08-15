@@ -1,0 +1,22 @@
+%section
+  %h2 Current projects
+  %br
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %th Delete
+        %th Approve
+    - @projects.each do |project|
+      %tr
+        %td #{ project.id }
+        %td #{ project.name }
+        %td 
+          = link_to "Delete", admin_projects_path, method: :delete, data:{confirm: 'Are you sure'}
+        - if !project.approved
+          %td
+            = link_to "Approve", approve_admin_project_path(project.id)
+        -else
+          %td This project has been approoved
+  = link_to "Back", admin_home_index_path
