@@ -20,13 +20,13 @@ $(document).on('ready page:load', function(){
   $('#project_name').change(function(){
     len = $(this).val().length;
     $.fn.check_fields(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
 
   $('#project_description').change(function(){
     len = $(this).val().length;
     $.fn.check_fields(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
 
   $("#project_amount").change(function(){
@@ -34,31 +34,32 @@ $(document).on('ready page:load', function(){
     len = val.length;
     var intDigit = /^\d+$/;
     if(intDigit.test(val)){ $.fn.check_fields(len);}
-    console.log(totalFields)
+    //console.log(totalFields)
+    //console.log(val)
   });
 
   $("#project_us").change(function(){
     len = $(this).val().length;
     $.fn.check_selects(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
 
   $("#project_mx").change(function(){
     len = $(this).val().length;
     $.fn.check_selects(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
 
   $("#project_closedate").change(function(){
     len = $(this).val().length;
     $.fn.check_fields(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
   
   $("#project_category").change(function(){
     len = $(this).val().length;
     $.fn.check_selects(len);
-    console.log(totalFields)
+    //console.log(totalFields)
   });
 
   $.fn.check_fields = function(ln){
@@ -71,7 +72,6 @@ $(document).on('ready page:load', function(){
     else{ totalFields += 1; }
     if(totalFields == 0){ $("#preview").removeAttr('disabled','disabled');}
   }
-
 
 });
 
