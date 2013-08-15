@@ -17,6 +17,19 @@ category[1] = Category.create(name: 'Comics')
 category[2] = Category.create(name: 'Desing')
 category[3] = Category.create(name: 'Fashion')
 category[4] = Category.create(name: 'Film')
+Category.create(name: 'Film & Video')
+Category.create(name: 'Food')
+Category.create(name: 'Games')
+Category.create(name: 'Music')
+Category.create(name: 'Photography')
+Category.create(name: 'Publishing')
+Category.create(name: 'Technology')
+Category.create(name: 'Theater')
+city=[]
+city=[]
+city=[]
+city=[]
+city=[]
 
 city=[]
 city[1] = "Colima"
