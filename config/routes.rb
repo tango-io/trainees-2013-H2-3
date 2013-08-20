@@ -10,6 +10,7 @@ StarfishApp::Application.routes.draw do
     resources :projects
   end
   resources :backs, controller: 'user/backs'
+  get 'users/backs', to: 'user/backs#list' 
   #admin page
   namespace :admin do
     resources :categories, :home 
@@ -24,7 +25,6 @@ StarfishApp::Application.routes.draw do
     end
     resources :backs do
       collection do
-
         get :revenue
       end
     end

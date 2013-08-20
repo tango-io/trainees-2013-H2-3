@@ -21,6 +21,10 @@ class User::BacksController < User::BaseController
     end
   end
 
+  def list
+    @list = current_user.backs 
+  end
+
   def show 
     @back = Back.find(params[:id])
   end
