@@ -7,9 +7,13 @@
         Project name
       %td
         amounted
+      %td
+        backed date 
     - @list.each do |project| 
       %tr
         %td
           = optain_name(project.project_id) 
         %td
           = project.amount
+        %td
+          = project.created_at
