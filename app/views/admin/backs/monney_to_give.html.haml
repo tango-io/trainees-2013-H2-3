@@ -1,0 +1,21 @@
+%section
+  %h3 The total of the monney that the site will give is: $#{@money}
+  %p Note: This is asumatory of all the backs less your fee.
+%section
+  Check the revenue on a given period of time
+  %form.form-search{:action => monney_to_give_betwen_dates_admin_backs_path, :method => 'GET'}
+    %input#start_date.input-medium.search-query{:type => "text", :placeholder => 'Start Date', :name => 's_date'}
+    %input#end_date.input-medium.search-query{:type => "text", :placeholder => 'End Date', :name => 'e_date'}
+    %button.btn{:type => "submit"} Check
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Money to give
+        %th Revenew
+    - @new_project.each do |name,money_raised|
+      %tr
+        %td #{ name }
+        %td $#{ money_raised }
+        %td $#{ money_raised }
+  = link_to "Back", admin_home_index_path

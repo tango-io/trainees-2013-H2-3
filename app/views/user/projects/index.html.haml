@@ -1,0 +1,15 @@
+%section
+  %h2 Current projects
+  %br
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Id
+        %th Name
+        %td Amount
+    - @projects.each do |project|
+      %tr
+        %td #{ project.id }
+        %td #{ project.name }
+        %td #{project.backs.sum("amount")} 
+  = link_to "Back", root_path

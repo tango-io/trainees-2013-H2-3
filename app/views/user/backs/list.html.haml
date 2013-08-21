@@ -1,0 +1,15 @@
+.padding_login_fix
+  %h1 
+    = "Projects backs list to #{current_user.email}"
+  %table{width:"100%"}
+    %tr
+      %td
+        Project name
+      %td
+        amounted
+    - @list.each do |project| 
+      %tr
+        %td
+          = optain_name(project.project_id) 
+        %td
+          = project.amount

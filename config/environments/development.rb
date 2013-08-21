@@ -14,7 +14,7 @@ StarfishApp::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -34,7 +34,7 @@ StarfishApp::Application.configure do
     :domain               => 'gmail.com',
     :user_name            => 'narciso69@gmail.com',
     :enable_starttls_auto => true,
-    :password             => 'Time.now',
+    :password             => 'Time.now2',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 end

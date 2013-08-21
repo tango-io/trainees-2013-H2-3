@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
   
-  before_filter :authenticate_user!, except:[:index,:show]
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show]
 
   def index
     @projects = Project.all
+
     respond_to do |format|
       format.html
       format.json { render json: @projects}
@@ -12,57 +12,38 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    flash[:notice] = ""
     @project = Project.find(params[:id])
+    @users = User.joins(:backs).where(backs: {project_id: params[:id]})
+    @owner = User.find(@project.user_id)
+    project_time_to_close
+    date_to_close
     respond_to do |format|
       format.html
-      format.json { render json: @project}
     end
   end
-
-  def new
-    @project = Project.new
-  end
-
-  def edit
+  def project_time_to_close
     @project = Project.find(params[:id])
-  end
-
-  def create
-    @project = Project.new(project_params)
-    if params[:preview] 
-      render "new"
-    else @project.save
-      UserMailer.project_notification(@project.name).deliver
-      redirect_to @project, notice: "Project was successfully created."
-    end
-  end
-
-  def update
-    @project = Project.find(params[:id])
-    if @project.update(project_params)
-      redirect_to @project, notice: "Project was successfully updated."
+    @time_now = Time.now
+    if @time_now >= @project.close_date
+      flash[:notice] = "The Project was Closed"
+      @close_date = 1
     else
-      render "edit"
+      @close_date = 0
     end
   end
 
-  def approve
-    @project = Project.find(params[:id])
-    @project.approve!
-    redirect_to projects_url
+  def date_to_close
+    @project  = Project.find(params[:id])
+    @date_finish = Date.parse("#{@project.close_date}")
+    @date_now = Date.today
+    @time_to_finish = (@date_finish - @date_now).to_i
+    @time_to_finish = 0 if @time_to_finish <= 0
   end
-
-  def destroy
-    redirect_to projects_url if @project.destroy
-  end
-
 private
 
   def set_project
     @project = Project.find(params[:id])
   end
 
-  def project_params
-    params.require(:project).permit( :name, :city, :close_date, :description, :amount, :video_url,:user_id, :category_id, :approved)
-  end
 end

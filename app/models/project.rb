@@ -18,6 +18,7 @@ class Project < ActiveRecord::Base
   validates_numericality_of :amount
   validates_uniqueness_of :name 
 
+  validates_format_of :video_url, :with => %r{\.(mp4|ogg|ogv)}
   mount_uploader :video_url, ProjectVideoUploader
 
   def approve!
