@@ -23,6 +23,12 @@ class Project < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
   scope :closed, -> { where('created_at > :today', today: Time.now) }
+
+  def calculated_days_closed
+    self.days_closed = (self.close_date.to_date - Date.today) 
+    self.save
+  end
+
   def approve!
     self.approved = true
     self.save
