@@ -6,9 +6,10 @@
       %tr
         %th Id
         %th Name
+        %td Amount
     - @projects.each do |project|
       %tr
         %td #{ project.id }
         %td #{ project.name }
-        %td 
+        %td #{project.backs.sum("amount")} 
   = link_to "Back", root_path

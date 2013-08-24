@@ -21,6 +21,8 @@ class Project < ActiveRecord::Base
   validates_format_of :video_url, :with => %r{\.(mp4|ogg|ogv)}
   mount_uploader :video_url, ProjectVideoUploader
 
+  scope :published, -> { where(published: true) }
+  scope :closed, -> { where('created_at > :today', today: Time.now) }
   def approve!
     self.approved = true
     self.save
