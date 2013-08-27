@@ -6,15 +6,19 @@ StarfishApp::Application.routes.draw do
   root 'home#index'
   #Users page
   devise_for :users, controller: 'user/users', path_names: {sing_in: "login", sing_out: "logout"}
-  resources :users do
-    resources :projects
+  namespace :user do
+  resources :projects
     resources :backs do 
-      get :list 
+      collection do
+        get :list 
+      end
     end
   end
   resources :projects do
-    resources :backs do 
-      get :list 
+    resources :backs do
+      collection do
+        get :list 
+      end
     end
   end
   #resources :backs, controller: 'user/backs
