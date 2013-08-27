@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827142021) do
+ActiveRecord::Schema.define(version: 20130827171417) do
 
   create_table "backs", force: true do |t|
     t.integer  "amount"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20130827142021) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "min"
+    t.string   "description"
   end
 
   add_index "pledges", ["project_id"], name: "index_pledges_on_project_id", using: :btree

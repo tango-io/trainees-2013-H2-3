@@ -6,17 +6,23 @@ class BacksController < ApplicationController
   end
 
   def create
-    @back = Back.new(back_params)
-    @current_project = Project.find(@back.project_id)
-    @pledge = Pledge.new
-    @pledge.amount = params[:back][:option].to_i
-    @pledge.project_id = @back.project_id
-    if @back.save and @pledge.save
-      @current_project.money_raised += @back.amount
+    @back = Back.new
+    @current_project = Project.find(params[:back][:project_id])
+    if @back.save
+      if @back.amount != nil
+        @current_project.money_raised += @back.amount
+      else
+        @current_project.money_raised = @back.amount
+      end
       @current_project.save
-      redirect_to @back
+      redirect_to project_backs_path(@current_project.id)
     else
-      render 'new'
+      render @back 
     end
+  end
+
+  private
+  def back_params
+    params.require(:back).permit(:amount)
   end
 end

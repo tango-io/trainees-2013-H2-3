@@ -2,6 +2,7 @@ StarfishApp::Application.routes.draw do
 
   get "categories", to: "categories#index"
   resources :projects
+  resources :backs
   #root page
   root 'home#index'
   #Users page

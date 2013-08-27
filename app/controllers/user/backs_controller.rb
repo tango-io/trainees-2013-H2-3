@@ -17,9 +17,6 @@ class User::BacksController < User::BaseController
     @back = Back.find(params[:id])
   end
 
-  def edit
-  end
-
   def destroy
     redirect_to @back if @back.destroy
   end
@@ -27,7 +24,5 @@ class User::BacksController < User::BaseController
   private
   def back_params
     params.require(:back).permit(:amount, :comment, :project_id, :user_id)
-  end
-  def project_param
   end
 end
