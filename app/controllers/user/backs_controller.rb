@@ -12,7 +12,10 @@ class User::BacksController < User::BaseController
   def create
     @back = Back.new(back_params)
     @current_project = Project.find(@back.project_id)
-    if @back.save
+    @pledge = Pledge.new
+    @pledge.amount = params[:back][:option].to_i
+    @pledge.project_id = @back.project_id
+    if @back.save and @pledge.save
       @current_project.money_raised += @back.amount
       @current_project.save
       redirect_to @back
