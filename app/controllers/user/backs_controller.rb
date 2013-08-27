@@ -6,7 +6,7 @@ class User::BacksController < User::BaseController
 
   def new
     @back = Back.new
-    @current_project = Project.all
+    #@current_project = Project.all
   end
 
   def create
