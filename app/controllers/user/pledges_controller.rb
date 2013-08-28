@@ -5,8 +5,11 @@ class User::PledgesController < User::BaseController
     @user = User.new
   end
   def create
+    @pledge = Pledge.new(pledge_params)
+    @pledge.project_id = params[:project_id]
   end
-  def params
-
+  private
+  def pledge_params
+   params.require(:pledge).permit(:min,:description) 
   end
 end
