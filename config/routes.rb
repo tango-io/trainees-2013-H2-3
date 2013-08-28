@@ -8,7 +8,9 @@ StarfishApp::Application.routes.draw do
   #Users page
   devise_for :users, controller: 'user/users', path_names: {sing_in: "login", sing_out: "logout"}
   namespace :user do
-  resources :projects
+  resources :projects do
+    resources :pledges
+  end
     resources :backs do 
       collection do
         get :list 
