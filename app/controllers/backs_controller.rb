@@ -3,11 +3,13 @@ class BacksController < ApplicationController
   end
   def new
     @back = Back.new
+    @pledge = Pledge.where(:project_id => params[:project_id])
   end
 
   def create
     @back = Back.new
-    @current_project = Project.find(params[:back][:project_id])
+    @current_project = Project.find(params[:project_id])
+    @back.user_id = current_user
     if @back.save
       if @back.amount != nil
         @current_project.money_raised += @back.amount

@@ -1,23 +1,30 @@
 - @back.user_id = current_user.id
 - @back.project_id = params[:project_id]
-= form_for (@back) do |f|
+= form_for [:project,@back] do |f|
   %p
     = f.label :amount
     = f.text_field :amount
     %h4 Select a Pledge for you Back
-    = f.radio_button :option, '0', checked: true
+    = f.radio_button :option, "Nothing", checked: true
     %p Nothing
-    = f.radio_button :option, '1', checked: false
-    %p $1.00
+  - @pledge.each do |pledge|
+    -#= f.radio_button :option, "#{pledge.id}", checked: true
+    -#= f.hidden_field :pledge_id, value: "#{pledge.id}"
+    = pledge.description
     %br
-    = f.radio_button :option, '5', checked: false
-    %p $5.00
-    %br
-    = f.radio_button :option, '10', checked: false
-    %p $10.00
-    %br
-    = f.radio_button :option, '15', checked: false
-    %p $15.00
-    %br
-    = f.hidden_field :project_id, value: "#{@back.project_id}"
-    = f.submit
+    -#= f.radio_button :option, '0', checked: true
+    -#%p Nothing
+    -#= f.radio_button :option, '1', checked: false
+    -#%p $1.00
+    -#%br
+    -#= f.radio_button :option, '5', checked: false
+    -#%p $5.00
+    -#%br
+    -#= f.radio_button :option, '10', checked: false
+    -#%p $10.00
+    -#%br
+    -#= f.radio_button :option, '15', checked: false
+    -#%p $15.00
+    -#%br
+    -#= f.hidden_field :project_id, value: "#{@back.project_id}"
+  = f.submit
