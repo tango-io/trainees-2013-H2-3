@@ -7,6 +7,13 @@ class User::PledgesController < User::BaseController
   def create
     @pledge = Pledge.new(pledge_params)
     @pledge.project_id = params[:project_id]
+    if @pledge.save
+      redirect_to :back
+      flash[:notice] = "Pledge Saved!"
+    else
+      redirect_to :back
+      flash[:notice] = "Error Saving Pledge"
+    end
   end
   private
   def pledge_params
