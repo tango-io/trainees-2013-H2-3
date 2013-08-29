@@ -18,9 +18,10 @@ class BacksController < ApplicationController
         @current_project.money_raised = @back.amount
       end
       @current_project.save
-      redirect_to project_backs_path(@current_project.id)
+      #redirect_to project_backs_path(@current_project.id)
+      redirect_to :back
     else
-      render @back 
+      render :back 
     end
   end
 

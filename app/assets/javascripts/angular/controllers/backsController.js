@@ -1,8 +1,13 @@
 starFishModel.controller('backsController', ['$scope','$http', function($scope, $http){
   $scope.backs = {};
-  
+
   $scope.validateAmount = function(){
-    alert("OPALES");
   };
+  $scope.validateAmount = function(){
+    //pledge_selected = $("h5");
+    //alert(""+ pledge_selected +"");
+    //pledge = parseInt(pledge.html());
+    //amount = $("input[name='backer[amount]']");
+  }
 }]);
 
