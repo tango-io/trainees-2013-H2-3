@@ -6,8 +6,7 @@ starFishModel.controller('backsController', ['$scope','$http', function($scope, 
   $scope.validateAmount = function(){
     //pledge_selected = $("h5");
     //alert(""+ pledge_selected +"");
-    //pledge = parseInt(pledge.html());
-    //amount = $("input[name='backer[amount]']");
+  
   }
 }]);
 
