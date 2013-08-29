@@ -12,7 +12,7 @@ class BacksController < ApplicationController
     @back.user_id = current_user
     @back.project_id = params[:project_id]
     if @back.save
-      if @back.amount != nil
+      if @current_project.money_raised != nil
         @current_project.money_raised += @back.amount
       else
         @current_project.money_raised = @back.amount
@@ -26,6 +26,6 @@ class BacksController < ApplicationController
 
   private
   def back_params
-    params.require(:back).permit(:amount)
+    params.require(:back).permit(:amount,:pledge_id)
   end
 end
