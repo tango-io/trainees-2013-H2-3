@@ -16,7 +16,8 @@
           %h1
             = @users.count
           %h5 Bakers
-          %h1 $00.00
+          %h1
+            = @project.money_raised
           %h5 
             Pledged of
           %h1
@@ -34,7 +35,7 @@
                 .btn.btn-large.btn-block.btn-danger
                   THIS PROJECT IS CLOSED
               - else
-                = link_to "Back this project", new_user_project_back_path(:project_id => @project.id), class: "btn btn-large btn-block btn-primary"
+                = link_to "Back this project", new_project_back_path(:project_id => @project.id), class: "btn btn-large btn-block btn-primary"
             - else
               .btn.btn-large.btn-block.btn-danger
                 You can NOT back your own project

@@ -1,0 +1,11 @@
+- flash.each do |name, msg|
+  %p{ class: "alert alert-#{name}" }= msg
+%h3 Add New Pledge to Project
+=form_for [:user,:project, @pledge] do |f|
+  = f.label :Quantity
+  = f.text_field :min
+  %br
+  = f.label :Pledge
+  = f.text_area :description
+  %br
+  = f.submit "Add this new Pledge"

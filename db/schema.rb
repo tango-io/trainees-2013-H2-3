@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130726032434) do
+ActiveRecord::Schema.define(version: 20130829150306) do
 
   create_table "backs", force: true do |t|
     t.integer  "amount"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130726032434) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pledge_id"
   end
 
   add_index "backs", ["project_id"], name: "index_backs_on_project_id", using: :btree
@@ -30,6 +31,19 @@ ActiveRecord::Schema.define(version: 20130726032434) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pledges", force: true do |t|
+    t.string   "option"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "min"
+    t.string   "description"
+  end
+
+  add_index "pledges", ["project_id"], name: "index_pledges_on_project_id", using: :btree
+  add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"

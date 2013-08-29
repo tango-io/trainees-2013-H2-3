@@ -2,18 +2,29 @@ StarfishApp::Application.routes.draw do
 
   get "categories", to: "categories#index"
   resources :projects
+  resources :backs
   #root page
   root 'home#index'
   #Users page
   devise_for :users, controller: 'user/users', path_names: {sing_in: "login", sing_out: "logout"}
   namespace :user do
-    resources :projects do
-      resources :backs do 
+  resources :projects do
+    resources :pledges
+  end
+    resources :backs do 
+      collection do
         get :list 
       end
     end
   end
-  #resources :backs, controller: 'user/backs'
+  resources :projects do
+    resources :backs do
+      collection do
+        get :list 
+      end
+    end
+  end
+  #resources :backs, controller: 'user/backs
   #get 'users/backs', to: 'user/backs#list' 
   #admin page
   namespace :admin do
