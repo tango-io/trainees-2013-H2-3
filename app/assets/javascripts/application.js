@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require angular.min.js
 //= require turbolinks
-//= require_tree ./libs
 //= require main 
 //= require_tree .
