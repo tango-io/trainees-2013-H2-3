@@ -7,9 +7,10 @@ class BacksController < ApplicationController
   end
 
   def create
-    @back = Back.new
+    @back = Back.new(back_params)
     @current_project = Project.find(params[:project_id])
     @back.user_id = current_user
+    @back.project_id = params[:project_id]
     if @back.save
       if @back.amount != nil
         @current_project.money_raised += @back.amount
