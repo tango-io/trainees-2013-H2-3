@@ -3,7 +3,7 @@ class BacksController < ApplicationController
   end
   def new
     @back = Back.new
-    @pledge = Pledge.where(:project_id => params[:project_id])
+    @pledge = Pledge.where(:project_id => params[:project_id]).order("min ASC")
   end
 
   def create
