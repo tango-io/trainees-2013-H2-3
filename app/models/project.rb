@@ -22,8 +22,18 @@ class Project < ActiveRecord::Base
   mount_uploader :video_url, ProjectVideoUploader
 
   scope :non_closed, -> { where('close_date > :today', today: Time.now) }
-  scope :non_sussesfull, -> { where('money_raised > :total_mounts', total_mounts: sum(:amount) ) }
+  scope :non_sussesfull, -> { where('money_raised > amound') } 
   scope :closed, -> { where('created_at > :today', today: Time.now) }
+
+  def sum_money(amount)
+    unless self.money_raised.nil?
+      self.money_raised += amount
+    else
+      self.money_raised + amount
+    end
+    self.save
+  end
+
   def approve!
     self.approved = true
     self.save

@@ -7,21 +7,13 @@ class BacksController < ApplicationController
   end
 
   def create
-    @back = Back.new(back_params)
-    @current_project = Project.find(params[:project_id])
-    @back.user_id = current_user
+    @back = current_user.backs.new(back_params)
     @back.project_id = params[:project_id]
     if @back.save
-      if @current_project.money_raised != nil
-        @current_project.money_raised += @back.amount
-      else
-        @current_project.money_raised = @back.amount
-      end
-      @current_project.save
-      #redirect_to project_backs_path(@current_project.id)
+      Project.find(params[:project_id]).sum_money(@back.amount)
       redirect_to :back
     else
-      render :back 
+      render :back
     end
   end
 
