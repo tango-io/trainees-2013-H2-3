@@ -8,13 +8,16 @@
       Amount
       %input{type: "text", name: "back[amount]"}
       %h4 Select a Pledge for you Back
-      %input{"ng-click" => "validateAmount()", type: "radio", name: "back[pledge_id]", value: 0 , selected: true}
+      %input{"ng-click" => "validateAmount(0)", type: "radio", name: "back[pledge_id]", value: 0 , selected: true}
+      %h5{"data-id" => "0"}
+        0
       %p Nothing
     - @pledge.each do |pledge|
-      %input{"ng-click" => "validateAmount()", type: "radio", name: "back[pledge_id]", value: pledge.id }
-      %h5 #{pledge.min} 
+      %input{"ng-click" => "validateAmount(#{pledge.id})", type: "radio", name: "back[pledge_id]", value: pledge.id }
+      %h5{"data-id" => "#{pledge.id}"} 
+        =pledge.min
       = pledge.description
       %br
-    %button
+    %button{ "ng-disabled" => "validateAmount()"}
       Save Back
 
