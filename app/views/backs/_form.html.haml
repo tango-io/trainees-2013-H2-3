@@ -1,23 +1,21 @@
 .select-back{ "ng-controller" => "backsController" } 
   - @back.user_id = current_user.id
   - @back.project_id = params[:project_id]
-  -#%input{"ng-click" => "validateAmount()", type: "radio", name: "back[pledge_id]", value: 0 , selected: true}
-    Prueba
   = form_for [:project,@back] do |f|
     %p
       Amount
       %input{type: "text", name: "back[amount]"}
       %h4 Select a Pledge for you Back
       %input{"ng-click" => "validateAmount(0)", type: "radio", name: "back[pledge_id]", value: 0 , selected: true}
-      %h5{"data-id" => "0"}
-        0
+      %h5{"data-id" => '0'} 
+        0      
       %p Nothing
     - @pledge.each do |pledge|
       %input{"ng-click" => "validateAmount(#{pledge.id})", type: "radio", name: "back[pledge_id]", value: pledge.id }
       %h5{"data-id" => "#{pledge.id}"} 
-        =pledge.min
+        = pledge.min
       = pledge.description
       %br
-    %button{ "ng-disabled" => "validateAmount()"}
+    %button{"ng-disabled" => "buttonHidden()"}
       Save Back
 

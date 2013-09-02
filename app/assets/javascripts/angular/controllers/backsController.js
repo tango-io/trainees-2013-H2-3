@@ -1,5 +1,4 @@
 starFishModel.controller('backsController', ['$scope','$http', function($scope, $http){
-  $scope.backs = {};
 
   $scope.validateAmount = function(pledge_id){
     pledge_selected = $("h5[data-id = '"+ pledge_id +"']").html();
@@ -7,11 +6,18 @@ starFishModel.controller('backsController', ['$scope','$http', function($scope, 
       
     if (pledge_selected <= amount) {
       console.log("BUENO = "+pledge_selected +" - "+amount+"'");
-      return false;
+      return valid = 1;
     }else{
       console.log("MALO = "+pledge_selected+" - "+amount+"");
-      return true;
+      return valid = 0;
     }
+  };
+  $scope.buttonHidden = function(valid){
+      if (valid != 1){
+        return true;
+      }else{
+        return false;
+      } 
   };
 }]);
 
