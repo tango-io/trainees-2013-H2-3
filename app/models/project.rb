@@ -21,7 +21,8 @@ class Project < ActiveRecord::Base
   validates_format_of :video_url, :with => %r{\.(mp4|ogg|ogv)}
   mount_uploader :video_url, ProjectVideoUploader
 
-  scope :published, -> { where(published: true) }
+  scope :non_closed, -> { where('close_date > :today', today: Time.now) }
+  scope :non_sussesfull, -> { where('money_raised > :total_mounts', total_mounts: sum(:amount) ) }
   scope :closed, -> { where('created_at > :today', today: Time.now) }
   def approve!
     self.approved = true
