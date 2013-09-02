@@ -5,19 +5,10 @@ starFishModel.controller('backsController', ['$scope','$http', function($scope, 
     amount = parseInt(($("input[name='back[amount]']")).val());
       
     if (pledge_selected <= amount) {
-      console.log("BUENO = "+pledge_selected +" - "+amount+"'");
-      return valid = 1;
+      $('#mybutton').removeAttr('disabled');
     }else{
-      console.log("MALO = "+pledge_selected+" - "+amount+"");
-      return valid = 0;
+      $('#mybutton').attr('disabled', 'enabled');
     }
-  };
-  $scope.buttonHidden = function(valid){
-      if (valid != 1){
-        return true;
-      }else{
-        return false;
-      } 
   };
 }]);
 
