@@ -20,7 +20,6 @@ class Admin::ProjectsController < Admin::BaseController
     unless params[:s_date].nil?
       @projects = Project.list_project_between(params[:s_date].to_date,params[:e_date].to_date)
       @money = Project.successful.sum('money_raised')
-      binding.pry
     else
       @projects = Project.all.order('id ASC').non_successful    ##calculate_backs
       @money = Project.successful.sum('money_raised')
