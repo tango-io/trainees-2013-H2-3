@@ -1,4 +1,12 @@
+- list = load_li_active
 .padding_login_fix
+  %ul.nav.nav-tabs
+    %li{class: "#{list[0]}"}
+      %a{:href => "?scope=non_closed"} Money to Give
+    %li{class: "#{list[1]}"}
+      %a{:href => "?scope=closed"} Money Given
+    %li{class: "#{list[2]}"}
+      %a{:href => "?scope=non_sussesfull"} Non Sussesfull 
   %h1 
     = "Projects backs list to #{current_user.email}"
   .table

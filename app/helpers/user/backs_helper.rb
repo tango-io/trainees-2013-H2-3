@@ -6,4 +6,16 @@ module User::BacksHelper
     end
     nil
   end
+
+  def load_li_active
+    list = ["","",""]
+    if params[:scope] == "non_closed"
+      list[0] = "active"
+    elsif params[:scope] == "closed"
+      list[1] = "active"
+    else
+      list[2] = "active"
+    end
+    list
+  end
 end
