@@ -17,11 +17,9 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def monney_to_give_betwen_dates
-    @projects = Project.all  
-    @start_date = params[:s_date].to_time
-    @end_date = params[:e_date].to_time
-    @start_date = @start_date.to_i
-    @end_date = @end_date.to_i
+    @projects = Project.all
+    @start_date = params[:s_date].to_time.to_i
+    @end_date = params[:e_date].to_time.to_i
     @time_projects = []
     @int_array = []
     @projects.each do |project|

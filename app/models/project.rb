@@ -34,6 +34,10 @@ class Project < ActiveRecord::Base
     self.save
   end
 
+  def list_project_between
+
+  end
+
   def approve!
     self.approved = true
     self.save
