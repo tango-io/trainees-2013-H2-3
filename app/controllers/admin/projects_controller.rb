@@ -18,10 +18,10 @@ class Admin::ProjectsController < Admin::BaseController
 
   def monney_to_give
     unless params[:s_date].nil?
-      @projects = Project.list_project_between(params[:s_date].to_date,params[:e_date].to_date)
+      @projects = Project.list_project_between(params[:s_date].to_date,params[:e_date].to_date).successful
       @money = Project.successful.sum('money_raised')
     else
-      @projects = Project.all.order('id ASC').non_successful    ##calculate_backs
+      @projects = Project.all.order('id ASC').successful    ##calculate_backs
       @money = Project.successful.sum('money_raised')
     end
   end
