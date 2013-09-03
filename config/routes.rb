@@ -19,7 +19,7 @@ StarfishApp::Application.routes.draw do
   end
   resources :projects do
     resources :backs do
-      collection do
+      member do
         get :list 
       end
     end

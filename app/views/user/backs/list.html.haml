@@ -1,19 +1,29 @@
+- list = load_li_active
 .padding_login_fix
+  %ul.nav.nav-tabs
+    %li{class: "#{list[0]}"}
+      %a{:href => "?scope=non_closed"} Money to Give
+    %li{class: "#{list[1]}"}
+      %a{:href => "?scope=closed"} Money Given
+    %li{class: "#{list[2]}"}
+      %a{:href => "?scope=non_sussesfull"} Non Sussesfull 
   %h1 
     = "Projects backs list to #{current_user.email}"
-  %table{width:"100%"}
-    %tr
-      %td
-        Project name
-      %td
-        amounted
-      %td
-        backed date 
-    - @list.each do |project| 
-      %tr
-        %td
-          = optain_name(project.project_id) 
-        %td
-          = project.amount
-        %td
-          = project.created_at
+  .table
+    %table{width:"100%"}
+      %thead
+        %th
+          Project name
+        %th
+          Amounted
+        %th
+          Backed date 
+      - @list.each do |project| 
+        - if name = optain_name(project.project_id)
+          %tr
+            %td
+              = name
+            %td
+              = project.amount
+            %td
+              = project.created_at
