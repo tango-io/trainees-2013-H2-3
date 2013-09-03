@@ -24,6 +24,6 @@ class Admin::ProjectsController < Admin::BaseController
   def monney_to_give
     @fee = 0.05
     @time_projects = Project.all
-    calculate_backs
+    ##calculate_backs
   end
 end
