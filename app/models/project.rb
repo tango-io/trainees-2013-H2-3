@@ -37,7 +37,7 @@ class Project < ActiveRecord::Base
 
   def self.list_project_between(init_date,end_date)
     self.select("name,money_raised").where("close_date >= :init_date AND close_date <= :end_date",
-                                           init_date: init_date, end_date: end_date)
+                                           init_date: init_date, end_date: end_date).order('id ASC')
   end
 
   def approve!
