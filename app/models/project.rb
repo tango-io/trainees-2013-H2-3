@@ -22,7 +22,8 @@ class Project < ActiveRecord::Base
   mount_uploader :video_url, ProjectVideoUploader
 
   scope :non_closed, -> { where('close_date > :today', today: Time.now) }
-  scope :non_sussesfull, -> { where('money_raised >= amount').closed } 
+  scope :non_sussesfull, -> { where('money_raised <= amount').closed } 
+  scope :sussesfull, -> { where('money_raised >= amount').closed } 
   scope :closed, -> { where('created_at > :today', today: Time.now) }
 
   def sum_money(amount)
@@ -34,8 +35,9 @@ class Project < ActiveRecord::Base
     self.save
   end
 
-  def list_project_between
-
+  def self.list_project_between(init_date,end_date)
+    self.select("name,money_raised").where("close_date >= :init_date AND close_date <= :end_date",
+                                           init_date: init_date, end_date: end_date)
   end
 
   def approve!
