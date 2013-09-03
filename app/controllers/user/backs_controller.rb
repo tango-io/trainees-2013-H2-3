@@ -11,7 +11,6 @@ class User::BacksController < User::BaseController
 
   def list
     @list = current_user.backs 
-    binding.pry
   end
 
   def show 

@@ -1,19 +1,21 @@
 .padding_login_fix
   %h1 
     = "Projects backs list to #{current_user.email}"
-  %table{width:"100%"}
-    %tr
-      %td
-        Project name
-      %td
-        amounted
-      %td
-        backed date 
-    - @list.each do |project| 
-      %tr
-        %td
-          = optain_nameaaaaaaaaaaaaaaaaaaa(project.project_id)
-        %td
-          = project.amount
-        %td
-          = project.created_at
+  .table
+    %table{width:"100%"}
+      %thead
+        %th
+          Project name
+        %th
+          Amounted
+        %th
+          Backed date 
+      - @list.each do |project| 
+        - if name = optain_name(project.project_id)
+          %tr
+            %td
+              = name
+            %td
+              = project.amount
+            %td
+              = project.created_at
